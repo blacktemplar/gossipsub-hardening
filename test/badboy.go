@@ -14,7 +14,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/libp2p/go-libp2p-core/protocol"
 
-	pb "github.com/libp2p/go-libp2p-pubsub/pb"
+	pb "github.com/blacktemplar/go-libp2p-pubsub/pb"
 
 	timecache "github.com/whyrusleeping/timecache"
 

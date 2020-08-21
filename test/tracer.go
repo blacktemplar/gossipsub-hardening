@@ -7,8 +7,8 @@ import (
 	"os"
 
 	"github.com/libp2p/go-libp2p-core/peer"
-	pubsub "github.com/libp2p/go-libp2p-pubsub"
-	pb "github.com/libp2p/go-libp2p-pubsub/pb"
+	pubsub "github.com/blacktemplar/go-libp2p-pubsub"
+	pb "github.com/blacktemplar/go-libp2p-pubsub/pb"
 )
 
 type RPCMetrics struct {

@@ -3,7 +3,7 @@
 package main
 
 import (
-	pubsub "github.com/libp2p/go-libp2p-pubsub"
+	pubsub "github.com/blacktemplar/go-libp2p-pubsub"
 )
 
 func pubsubOptions(cfg HonestNodeConfig) ([]pubsub.Option, error) {

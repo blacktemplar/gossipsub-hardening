@@ -12,7 +12,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/peer"
 	"github.com/testground/sdk-go/runtime"
 
-	pubsub "github.com/libp2p/go-libp2p-pubsub"
+	pubsub "github.com/blacktemplar/go-libp2p-pubsub"
 )
 
 type HonestNodeConfig struct {

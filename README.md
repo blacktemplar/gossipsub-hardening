@@ -146,7 +146,7 @@ The default configuration is to test against the current `master` branch of go-l
 but you can change that in the `Pubsub` panel of the configuration UI. You can enter the name
 of a branch or tag, or the full SHA-1 hash of a specific commit.
 
-**Important:** if you target a version before [the Gossipsub v1.1 PR](https://github.com/libp2p/go-libp2p-pubsub/pull/273)
+**Important:** if you target a version before [the Gossipsub v1.1 PR](https://github.com/blacktemplar/go-libp2p-pubsub/pull/273)
 was merged, you must uncheck the "target hardening branch API" checkbox to avoid build failures due to
 missing methods.
 

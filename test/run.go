@@ -15,6 +15,7 @@ import (
 	"github.com/libp2p/go-libp2p-core/crypto"
 	"github.com/libp2p/go-libp2p-core/host"
 	"github.com/libp2p/go-libp2p-core/peer"
+	logging "github.com/ipfs/go-log"
 	"github.com/multiformats/go-multiaddr"
 	manet "github.com/multiformats/go-multiaddr-net"
 	"golang.org/x/sync/errgroup"
@@ -79,6 +80,8 @@ func createHost(ctx context.Context) (host.Host, error) {
 }
 
 func RunSimulation(runenv *runtime.RunEnv) error {
+	lvl, err := logging.LevelFromString("debug")
+	logging.SetAllLoggers(lvl)
 	params := parseParams(runenv)
 
 	totalTime := params.setup + params.runtime + params.warmup + params.cooldown

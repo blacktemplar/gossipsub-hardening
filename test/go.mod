@@ -4,11 +4,12 @@ go 1.13
 
 require (
 	github.com/avast/retry-go v2.6.0+incompatible
+	github.com/blacktemplar/go-libp2p-pubsub v0.3.5-0.20200821084105-24de3fe69123
 	github.com/gogo/protobuf v1.3.1
+	github.com/ipfs/go-log v1.0.4
 	github.com/libp2p/go-libp2p v0.9.2
-	github.com/libp2p/go-libp2p-core v0.5.6
-	github.com/libp2p/go-libp2p-pubsub v0.3.1
-	github.com/libp2p/go-libp2p-swarm v0.2.4
+	github.com/libp2p/go-libp2p-core v0.6.1
+	github.com/libp2p/go-libp2p-swarm v0.2.8
 	github.com/multiformats/go-multiaddr v0.2.2
 	github.com/multiformats/go-multiaddr-net v0.1.5
 	github.com/testground/sdk-go v0.2.1
