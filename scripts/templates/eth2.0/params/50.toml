@@ -1,0 +1,10 @@
+COMPOSITION_NAME = "50"
+
+# total number of nodes in simulation
+N_NODES = 50
+# number of honest (non-attack) nodes that are publishers
+# the remaining honest nodes will lurk in their topics without
+# publishing
+N_PUBLISHER = 5
+
+HONEST_CONNECT_DELAYS = '50@0s'

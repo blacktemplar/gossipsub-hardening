@@ -4,7 +4,7 @@ go 1.13
 
 require (
 	github.com/avast/retry-go v2.6.0+incompatible
-	github.com/blacktemplar/go-libp2p-pubsub v0.3.5-0.20200821084105-24de3fe69123
+	github.com/blacktemplar/go-libp2p-pubsub v0.3.5-0.20200916151648-9b9c754e48d4
 	github.com/gogo/protobuf v1.3.1
 	github.com/ipfs/go-log v1.0.4
 	github.com/libp2p/go-libp2p v0.9.2

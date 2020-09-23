@@ -1,8 +1,4 @@
-COMPOSITION_NAME = "1k-attack-cold-boot-covert-flash"
-
-# time to run simulation (after warmup) (>2 epochs)
-T_RUN = "18m"
-
+COMPOSITION_NAME = "1k-attack-cold-boot-oppgraft"
 # total number of nodes in simulation
 N_NODES = 1250
 
@@ -11,12 +7,15 @@ N_ATTACK_NODES = 250
 
 N_ATTACK_PEERS_PER_NODE = 16
 
+# type of attack node
+ATTACK_NODE_TYPE = "sybil"
+
 ATTACK_DEGREE = 20
 
 ATTACK_SINGLE_NODE = false
 
 ATTACKER_CONNECT_DELAYS = "4000@0s"
 
-T_SYBIL_ATTACK_DELAY = "5m"
+OPPORTUNISTIC_GRAFT_TICKS = 10
 
-T_SETUP = "5m"
+OPPORTUNISTIC_GRAFT_THRESHOLD = 5

@@ -1,0 +1,379 @@
+#config for 40000 validators
+TOPIC_CONFIG = [
+   { id = 'beacon_block', message_rate = '1/12s', message_size = '123 KiB' },
+   { id = 'beacon_aggregate_and_proof', message_rate = '156.25/12s', message_size = '680 B' },
+   { id = 'beacon_attestation_0', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_1', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_2', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_3', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_4', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_5', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_6', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_7', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_8', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'beacon_attestation_9', message_rate = '19.53125/12s', message_size = '480 B' },
+   { id = 'voluntary_exit', message_rate = '4/384s', message_size = '112 B' },
+   { id = 'proposer_slashing', message_rate = '1/38400s', message_size = '400 B' },
+   { id = 'attester_slashing', message_rate = '1/38400s', message_size = '33 KiB' },
+]
+
+[PEER_SCORE_PARAMS]
+
+TopicSoreCap = 48.23386159451581
+AppSpecificWeight = 1
+IPColocationFactorWeight = -48.23386159451581
+IPColocationFactorThreshold = 100000
+BehaviourPenaltyWeight = -15.879335171059182
+BehaviourPenaltyThreshold = 6
+BehaviourPenaltyDecay = 0.9857119009006162
+DecayInterval = '12.0s'
+DecayToZero = 0.01
+RetainScore = 38400.0
+
+  [PEER_SCORE_PARAMS.Thresholds]
+  GossipThreshold = -4000
+  PublishThreshold = -8000
+  GraylistThreshold = -16000
+  AcceptPXThreshold = 100
+
+  [PEER_SCORE_PARAMS.Topics.beacon_block]
+  TopicWeight = 0.5
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 1
+  FirstMessageDeliveriesDecay = 0.9928302477768374
+  FirstMessageDeliveriesCap = 34.86870846001471
+
+  MeshMessageDeliveriesWeight = -411.27604794941897
+  MeshMessageDeliveriesDecay = 0.9716279515771061
+  MeshMessageDeliveriesThreshold = 0.6849191409056553
+  MeshMessageDeliveriesCap = 2.054757422716966
+  MeshMessageDeliveriesActivation = '384.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -411.27604794941897
+  MeshFailurePenaltyDecay = 0.9716279515771061
+
+  InvalidMessageDeliveriesWeight = -192.93544637806323
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_aggregate_and_proof]
+  TopicWeight = 0.5
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.11964546385916634
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 291.43360170393396
+
+  MeshMessageDeliveriesWeight = -0.1099716594074176
+  MeshMessageDeliveriesDecay = 0.930572040929699
+  MeshMessageDeliveriesThreshold = 41.885685058964576
+  MeshMessageDeliveriesCap = 167.5427402358583
+  MeshMessageDeliveriesActivation = '384.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -0.1099716594074176
+  MeshFailurePenaltyDecay = 0.930572040929699
+
+  InvalidMessageDeliveriesWeight = -192.93544637806323
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_0]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_1]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_2]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_3]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_4]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_5]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_6]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_7]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_8]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.beacon_attestation_9]
+  TopicWeight = 0.015625
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 0.9571637108733307
+  FirstMessageDeliveriesDecay = 0.8659643233600653
+  FirstMessageDeliveriesCap = 36.429200212991745
+
+  MeshMessageDeliveriesWeight = -54.298171921238215
+  MeshMessageDeliveriesDecay = 0.9646616199111993
+  MeshMessageDeliveriesThreshold = 10.663220677657273
+  MeshMessageDeliveriesCap = 170.61153084251637
+  MeshMessageDeliveriesActivation = '204.0s'
+  MeshMessageDeliveriesWindow = '2s'
+
+  MeshFailurePenaltyWeight = -54.298171921238215
+  MeshFailurePenaltyDecay = 0.9646616199111993
+
+  InvalidMessageDeliveriesWeight = -6173.934284098023
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.voluntary_exit]
+  TopicWeight = 0.05
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 1.6046084806888448
+  FirstMessageDeliveriesDecay = 0.9985619193472844
+  FirstMessageDeliveriesCap = 21.730352842860377
+
+  MeshMessageDeliveriesWeight = 0
+
+  MeshFailurePenaltyWeight = 0
+
+  InvalidMessageDeliveriesWeight = -1929.3544637806322
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.proposer_slashing]
+  TopicWeight = 0.05
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 32.092169613776896
+  FirstMessageDeliveriesDecay = 0.9985619193472844
+  FirstMessageDeliveriesCap = 1.086517642143019
+
+  MeshMessageDeliveriesWeight = 0
+
+  MeshFailurePenaltyWeight = 0
+
+  InvalidMessageDeliveriesWeight = -1929.3544637806322
+  InvalidMessageDeliveriesDecay = 0.9971259067705325
+
+  [PEER_SCORE_PARAMS.Topics.attester_slashing]
+  TopicWeight = 0.05
+
+  TimeInMeshWeight = 0.03333333333333333
+  TimeInMeshQuantum = 12.0
+  TimeInMeshCap = 300.0
+
+  FirstMessageDeliveriesWeight = 32.092169613776896
+  FirstMessageDeliveriesDecay = 0.9985619193472844
+  FirstMessageDeliveriesCap = 1.086517642143019
+
+  MeshMessageDeliveriesWeight = 0
+
+  MeshFailurePenaltyWeight = 0
+
+  InvalidMessageDeliveriesWeight = -1929.3544637806322
+  InvalidMessageDeliveriesDecay = 0.9971259067705325

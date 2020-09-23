@@ -68,11 +68,12 @@ type InspectParams struct {
 
 type topicState struct {
 	cfg       TopicConfig
-	nMessages int64
+	nMessages float64
 	topic     *pubsub.Topic
 	sub       *pubsub.Subscription
 	pubTicker *time.Ticker
 	done      chan struct{}
+	prob      float64
 }
 
 type PubsubNode struct {
@@ -196,6 +197,12 @@ func (p *PubsubNode) Run(runtime time.Duration, waitForReadyStateThenConnectAsyn
 
 	p.runenv.RecordMessage("Cool down complete")
 
+	select {
+	case <-time.After(time.Second * 2):
+	case <-p.ctx.Done():
+		return p.ctx.Err()
+	}
+
 	return nil
 }
 
@@ -204,10 +211,10 @@ func (p *PubsubNode) joinTopic(t TopicConfig, runtime time.Duration) {
 	defer p.lk.Unlock()
 
 	publishInterval := time.Duration(float64(t.MessageRate.Interval) / t.MessageRate.Quantity)
-	totalMessages := int64(runtime / publishInterval)
+	totalMessages := runtime.Seconds() / publishInterval.Seconds()
 
 	if p.cfg.Publisher {
-		p.log("publishing to topic %s. message_rate: %.2f/%ds, publishInterval %dms, msg size %d bytes. total expected messages: %d",
+		p.log("publishing to topic %s. message_rate: %.2f/%ds, publishInterval %dms, msg size %d bytes. total expected messages: %f",
 			t.Id, t.MessageRate.Quantity, t.MessageRate.Interval/time.Second, publishInterval/time.Millisecond, t.MessageSize, totalMessages)
 	} else {
 		p.log("joining topic %s as a lurker", t.Id)
@@ -234,6 +241,7 @@ func (p *PubsubNode) joinTopic(t TopicConfig, runtime time.Duration) {
 		sub:       sub,
 		nMessages: totalMessages,
 		done:      make(chan struct{}, 1),
+		prob:      1.0,
 	}
 	p.topics[t.Id] = &ts
 	go p.consumeTopic(&ts)
@@ -252,6 +260,10 @@ func (p *PubsubNode) joinTopic(t TopicConfig, runtime time.Duration) {
 		}
 
 		p.runenv.RecordMessage("Starting publisher with %s publish interval", publishInterval)
+		if publishInterval.Seconds() > 1.0 {
+			ts.prob = 1.0 / publishInterval.Seconds()
+			publishInterval = time.Second
+		}
 		ts.pubTicker = time.NewTicker(publishInterval)
 		p.publishLoop(&ts)
 	}()
@@ -284,6 +296,7 @@ func (p *PubsubNode) sendMsg(seq int64, ts *topicState) {
 
 func (p *PubsubNode) publishLoop(ts *topicState) {
 	var counter int64
+	var probCounter float64
 	p.pubwg.Add(1)
 	defer p.pubwg.Done()
 	for {
@@ -293,9 +306,12 @@ func (p *PubsubNode) publishLoop(ts *topicState) {
 		case <-p.ctx.Done():
 			return
 		case <-ts.pubTicker.C:
-			go p.sendMsg(counter, ts)
-			counter++
-			if counter > ts.nMessages {
+			probCounter += ts.prob
+			if rand.Float64() < ts.prob {
+			      go p.sendMsg(counter, ts)
+			      counter++
+			}
+			if probCounter > ts.nMessages {
 				ts.pubTicker.Stop()
 				return
 			}

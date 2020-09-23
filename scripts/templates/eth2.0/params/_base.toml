@@ -4,8 +4,6 @@ COMPOSITION_NAME = "baseline"
 # set this to an empty array if you want to target a commit before gossipsub v1.1 was merged.
 BUILD_SELECTORS = ['hardened_api']
 
-RUN_CONFIG = "log_level=\"debug\""
-
 # version of go-libp2p-pubsub to use when building the test plan
 GS_VERSION = "latest"
 
@@ -38,13 +36,12 @@ T_HEARTBEAT = '700ms'
 
 VALIDATE_QUEUE_SIZE = 1024
 OUTBOUND_QUEUE_SIZE = 128
-T_SCORE_INSPECT_PERIOD = '5s'
 
 FLOOD_PUBLISHING = "true"
 
 T_LATENCY = '25ms'
 
-HONEST_CONNECT_DELAYS = '0s'
+HONEST_CONNECT_DELAYS = '1000@0s'
 
 
 # TOPIC_CONFIG controls which topics will be joined.

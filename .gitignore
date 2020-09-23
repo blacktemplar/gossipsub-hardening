@@ -3,6 +3,7 @@ venv/
 scripts/output/
 scripts/config-snapshot.json
 scripts/configs/snapshot.json
+scripts/templates/eth2.0-templates/
 __pycache__/
 .ipynb_checkpoints/
 
